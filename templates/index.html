@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}" />
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <h2>Lists</h2>
+            <form class="add-category" action="{{ url_for('add_list') }}" method="POST">
+                <input placeholder="Add List" name="list_name" required />
+                <button>+</button>
+            </form>
+
+            {% for l in all_lists %}
+            <form class="category-list" action="{{ url_for('view_list', list_name=l.name) }}" method="GET">
+                <button {% if l.name == current_list.name %} style="font-weight: bold;" {% endif %}>
+                    {{ l.name }}
+                </button>
+            </form>
+            {% endfor %}
+        </div>
+
+        <div class="main-content">
+            <h1>{{ current_list.name }} Tasks</h1>
+
+            <form
+                class="input-container"
+                action="{{ url_for('view_list', list_name=current_list.name) }}"
+                method="POST"
+            >
+                <input placeholder="Enter your todo" name="todo" required />
+                <button>+</button>
+            </form>
+
+            <div class="todo-list">
+                {% for item in tasks %}
+                <div class="todo-item">
+                    <form action="{{ url_for('checked', task_id=item.id) }}" method="POST">
+                        <input type="checkbox"
+                            {% if item.checked %} checked {% endif %}
+                            onChange="this.form.submit()"/>
+                    </form>
+
+                    <span {% if item.checked %} style="text-decoration: line-through; color: gray;" {% endif %}>
+                        {{ item.content }}
+                    </span>
+
+                    <form action="{{ url_for('delete', task_id=item.id) }}" method="POST">
+                        <button>Delete</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

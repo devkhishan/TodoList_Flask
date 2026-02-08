@@ -1,0 +1,170 @@
+:root {
+    --primary-color: #4a90e2;
+    --bg-color: #f4f7f6;
+    --sidebar-color: #2c3e50;
+    --text-color: #333;
+    --white: #ffffff;
+    --danger: #e74c3c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-color);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex: 1;
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* Familiar Input Styling */
+input[type="text"],
+.add-category input,
+.input-container input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Forms & Layouts */
+.input-container,
+.add-category {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.input-container button,
+.add-category button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0 20px;
+    font-size: 1.5rem;
+}
+
+/* Category List Buttons */
+.category-list button {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    color: #bdc3c7;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.category-list button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Todo Items */
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.todo-item {
+    background: var(--white);
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.todo-item button {
+    background-color: transparent;
+    color: var(--danger);
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+.todo-item button:hover {
+    background-color: #fdedec;
+}
+
+.todo-item input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+/* Checkbox Styling */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+        width: 100%;
+    }
+}
