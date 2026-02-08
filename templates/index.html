@@ -17,7 +17,7 @@
 
             {% for l in all_lists %}
             <form class="category-list" action="{{ url_for('view_list', list_name=l.name) }}" method="GET">
-                <button {% if l.name == current_list.name %} style="font-weight: bold;" {% endif %}>
+                <button {% if l.name == current_list.name %} style="font-weight: bold;color: orange;" {% endif %}>
                     {{ l.name }}
                 </button>
             </form>

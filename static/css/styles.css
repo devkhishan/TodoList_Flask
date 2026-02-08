@@ -21,7 +21,6 @@ body {
     color: var(--text-color);
 }
 
-/* Sidebar Styling */
 .sidebar {
     width: 280px;
     background-color: var(--sidebar-color);
@@ -39,7 +38,6 @@ body {
     opacity: 0.8;
 }
 
-/* Main Content Styling */
 .main-content {
     flex: 1;
     padding: 3rem;
@@ -52,7 +50,6 @@ h1 {
     font-weight: 700;
 }
 
-/* Familiar Input Styling */
 input[type="text"],
 .add-category input,
 .input-container input {
@@ -70,7 +67,6 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
 }
 
-/* Forms & Layouts */
 .input-container,
 .add-category {
     display: flex;
@@ -94,7 +90,6 @@ button {
     font-size: 1.5rem;
 }
 
-/* Category List Buttons */
 .category-list button {
     width: 100%;
     text-align: left;
@@ -110,7 +105,6 @@ button {
     color: white;
 }
 
-/* Todo Items */
 .todo-list {
     display: flex;
     flex-direction: column;
@@ -144,7 +138,7 @@ button {
     opacity: 0.6;
     transition: all 0.3s ease;
 }
-/* Checkbox Styling */
+
 input[type="checkbox"] {
     width: 20px;
     height: 20px;
@@ -152,7 +146,6 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-/* Responsiveness */
 @media (max-width: 768px) {
     body {
         flex-direction: column;
